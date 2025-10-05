@@ -1,0 +1,150 @@
+/* style.css
+   Tema: Fitness Dark - simples, legível e moderno
+   Comentários em PT-BR para iniciantes
+*/
+
+/* ======== 1) Variáveis e reset ======== */
+:root{
+  --bg: #071014;            /* fundo geral */
+  --panel: #0d1a20;         /* cards / caixas */
+  --muted: #97a6ad;         /* texto secundário */
+  --text: #e6f7f3;          /* texto principal */
+  --accent: #00c98a;        /* cor "fitness" (verde) */
+  --accent-2: #00b884;
+  --glass: rgba(255,255,255,0.03);
+  --radius: 12px;
+  --gap: 16px;
+  --max-width: 980px;
+  --card-shadow: 0 8px 30px rgba(2,6,14,0.6);
+}
+
+/* box-sizing + reset simples */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(0,200,138,0.02), transparent 10%),
+              linear-gradient(180deg,var(--bg), #031017 120%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  padding:28px 12px;
+  display:flex;
+  justify-content:center;
+}
+
+/* layout principal */
+.main-wrap{
+  width:100%;
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:20px;
+}
+
+/* ======== 2) Cabeçalhos e textos ======== */
+h1{
+  font-size:clamp(1.4rem, 3.4vw, 2.2rem);
+  margin:0 0 8px;
+  text-align:center;
+  letter-spacing:0.6px;
+}
+h2{font-size:1.1rem;margin:0 0 10px;color:var(--text)}
+
+/* pequeno texto de chamada na index */
+.caixa-texto{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border-radius:var(--radius);
+  padding:28px;
+  margin-bottom:18px;
+  border:1px solid var(--glass);
+  box-shadow: var(--card-shadow);
+  text-align:center;
+}
+.caixa-texto p{margin:0;color:var(--muted);font-weight:600; font-size:1.05rem}
+.caixa-texto .accent{color:var(--accent); font-weight:800}
+
+/* ======== 3) Botões / menu principal ======== */
+.container-botao ul{
+  list-style:none;
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  align-items:center;
+  padding:0;
+  margin:18px 0;
+  flex-wrap:wrap;
+}
+.container-botao .botao{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:999px;
+  text-decoration:none;
+  color:#02221a;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  font-weight:700;
+  box-shadow: 0 10px 20px rgba(0,200,138,0.12);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.container-botao .botao:hover{ transform: translateY(-4px); box-shadow: 0 18px 30px rgba(0,200,138,0.18) }
+.container-botao .botao:focus{ outline: 3px solid rgba(0,200,138,0.12); outline-offset:4px }
+
+/* ======== 4) Caixas de treino e listas ======== */
+.caixa, .treino{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border-radius:var(--radius);
+  padding:18px;
+  margin:14px 0;
+  border:1px solid var(--glass);
+  box-shadow: var(--card-shadow);
+}
+
+/* listas: grid para ficar responsivo e limpo */
+.caixa ul, .treino ul{
+  list-style:none;
+  padding:0;
+  margin:12px 0 0 0;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap:10px;
+}
+
+/* itens da lista (links para exercícios) */
+.caixa li a, .treino li a{
+  display:block;
+  padding:10px 12px;
+  border-radius:10px;
+  text-decoration:none;
+  color:var(--text);
+  background: rgba(255,255,255,0.01);
+  border:1px solid transparent;
+  transition: background .15s ease, transform .15s ease, border-color .15s;
+  font-weight:600;
+  font-size:0.98rem;
+}
+.caixa li a:hover, .treino li a:hover{
+  background: linear-gradient(90deg, rgba(0,200,138,0.06), rgba(0,200,138,0.03));
+  transform: translateY(-4px);
+  border-color: rgba(0,200,138,0.10);
+}
+.caixa li a:focus{ outline: 3px solid rgba(0,200,138,0.09); outline-offset:3px }
+
+/* pequenas descrições / h2 dentro dos treinos */
+.treino h2{font-size:1rem;margin-bottom:8px;color:var(--muted)}
+
+/* ======== 5) Responsividade ======== */
+@media (max-width:680px){
+  .container-botao ul{ gap:10px }
+  .main-wrap{ padding:12px }
+  .caixa, .treino{ padding:14px }
+  .caixa-texto{ padding:18px }
+}
+
+/* ======== 6) Acessibilidade & pequenos toques ======== */
+/* Força o foco visível apenas quando usando teclado (compatível em navegadores modernos) */
+:focus{ outline:none }
+:focus-visible{ outline: 3px solid rgba(0,200,138,0.12); outline-offset:4px }
+
+/* evita seleção feia de texto em botões ao clicar */
+.botao, .caixa a{ user-select: none }
