@@ -148,3 +148,16 @@ h2{font-size:1.1rem;margin:0 0 10px;color:var(--text)}
 
 /* evita seleção feia de texto em botões ao clicar */
 .botao, .caixa a{ user-select: none }
+
+
+
+/*=============================================================================================================================================================================================================================================MEU CSS===============================================*/
+
+/*calculo tde*/
+.resulkcal{
+  display: flex; /*deixa um do lado do outro*/
+  justify-content: center; /*centraliza tudo no meio*/
+  gap:  60px; /*espaço entre as caixas*/
+  
+}
+

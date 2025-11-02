@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo de TDEE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    
+    <div class="caixa"><!--inicio peso, altura e idade-->
+    <label> Peso(Kg): </label>
+    <input type="number" id="peso">
+
+    <label> Altura(Cm): </label>
+    <input type="number" id="altura">
+
+    <label> Idade(anos): </label>
+    <input type="number" id="idade">
+   
+
+    <label> <br> Sexo: </label><!--inicio sexo-->
+    <div class="caixa">
+        <label><input type="radio" name="sexo" value="feminino" checked>Feminino</label>
+        <label><input type="radio" name="sexo" value="masculino">Masculino</label>
+    </div>
+    <!--fim sexo-->
+
+    <!--inicio fator de atividade-->
+    <label> Nivel de atividade fisica:</label>
+    <select id="atividade">
+        <option value="1.2">Sedentario</option>
+        <option value="1.375">leve(1-2 p/semana)</option>
+        <option value="1.55"> Moderado(3-4 p/semana)</option>
+        <option value="1.725"> Intenso(5-6 p/semana)</option>
+    </select>
+    <!--fim fator de atividade-->
+
+    <button onclick="calcular()">calcular</button>
+
+    <div id="resultado">Resutado:</div>
+    <!--fim resultado-->
+    <script src="calorias.js"></script>
+
+    </div>
+    <!--fim peso altura ...-->
+</body>
+
+</html>
